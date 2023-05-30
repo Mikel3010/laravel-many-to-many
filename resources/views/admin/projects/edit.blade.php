@@ -34,6 +34,15 @@
             <label for="image" class="form-label">Image</label>
             <input class="form-control" type="file" id="image" name="image">
           </div>
+          <div class="mb-3">
+            <div>Tecnologie</div>
+            @foreach ($technologies as $technology)
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="technologies" value="{{ $technology->id}}" name="technologies[]" {{$project->technologies->contains($technology->id) ? 'checked' : ''}}>
+              <label class="form-check-label" for="technologies">{{$technology->name}}</label>
+            </div>    
+            @endforeach
+          </div>
         <button type="submit" class="btn btn-primary">Edit</button>
     </form>
 </div>

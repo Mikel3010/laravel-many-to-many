@@ -11,6 +11,10 @@ class Project extends Model
 
     protected $guarded = ['slug', 'image'];
 
+    public function technologies(){
+        return $this->belongsToMany(Technology::class)->withTimestamps();
+    }
+
     public function type(){
         return $this->belongsTo(Type::class);
     }
